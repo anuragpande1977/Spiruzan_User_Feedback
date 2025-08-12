@@ -1,35 +1,60 @@
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwixJ9ycF3svdeSlZFYESTTqGWBXVCc-09AZMJf9RXZzJqLmy1D0WxkLWf3P_6_8lVw/exec";  // <-- paste your Apps Script URL
+// === Spiruzan™ Feedback — Frontend submit logic ===
 
-document.getElementById('yr').textContent = new Date().getFullYear();
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwixJ9ycF3svdeSlZFYESTTqGWBXVCc-09AZMJf9RXZzJqLmy1D0WxkLWf3P_6_8lVw/exec";  // Google Apps Script Web App URL
 
+// Footer year
+const yrEl = document.getElementById('yr');
+if (yrEl) yrEl.textContent = new Date().getFullYear();
+
+// Form elements
 const form = document.getElementById('form');
 const okBox = document.getElementById('okBox');
 const errBox = document.getElementById('errBox');
 const submitBtn = document.getElementById('submitBtn');
 
+// Utility: gather checked values for a checkbox group
+const getChecks = (name) =>
+  [...form.querySelectorAll(`input[name="${name}"]:checked`)].map(i => i.value);
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  okBox.style.display = 'none';
-  errBox.style.display = 'none';
+  if (okBox) okBox.style.display = 'none';
+  if (errBox) errBox.style.display = 'none';
 
+  // Basic required checks
   if (!form.petSpecies.value || !document.getElementById('consent').checked) {
-    errBox.textContent = 'Please select Pet Species and accept consent.';
-    errBox.style.display = 'block';
+    if (errBox) {
+      errBox.textContent = 'Please select Pet Species and accept consent.';
+      errBox.style.display = 'block';
+    }
     return;
   }
-  if (form.website.value) return; // honeypot
 
+  // Email validation (requires an <input type="email" name="email" required> in your HTML)
+  const emailVal = (form.email?.value || '').trim();
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
+  if (!emailOk) {
+    if (errBox) {
+      errBox.textContent = 'Please enter a valid email address.';
+      errBox.style.display = 'block';
+    }
+    return;
+  }
+
+  // Honeypot (spam trap)
+  if (form.website.value) return;
+
+  // Disable button to avoid double submits
   submitBtn.disabled = true;
 
-  const getChecks = (name) =>
-    [...form.querySelectorAll(`input[name="${name}"]:checked`)].map(i => i.value);
-
+  // Build payload
   const payload = {
+    email: emailVal,                                  // <-- Email now captured
     petSpecies: form.petSpecies.value,
     petAge: form.petAge.value,
     petWeight: form.petWeight.value,
     healthIssues: getChecks('healthIssues'),
-    chronic: form.chronic.value.trim(),
+    chronic: (form.chronic?.value || '').trim(),
     useDuration: form.useDuration.value,
     frequency: form.frequency.value,
     ease: form.ease.value,
@@ -43,25 +68,34 @@ form.addEventListener('submit', async (e) => {
     choiceFactors: getChecks('choiceFactors'),
     confidence: form.confidence.value,
     recommend: form.recommend.value,
-    sideEffects: form.sideEffects.value.trim(),
+    sideEffects: (form.sideEffects?.value || '').trim(),
     continueUse: form.continueUse.value,
-    freeText: form.freeText.value.trim()
+    freeText: (form.freeText?.value || '').trim()
   };
 
   try {
     await fetch(SCRIPT_URL, {
       method: 'POST',
-      mode: 'no-cors', // opaque but fine for logging
+      mode: 'no-cors', // opaque response; fine for logging to Apps Script
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
-    okBox.style.display = 'block';
+
+    // Assume success if no network error thrown
+    if (okBox) okBox.style.display = 'block';
     form.reset();
     submitBtn.disabled = false;
-    ['ease','mobility','coat','immune','energy'].forEach(n => { if (form[n]) form[n].value = 3; });
+
+    // Reset sliders to mid after reset (optional)
+    ['ease','mobility','coat','immune','energy'].forEach(n => {
+      if (form[n]) form[n].value = 3;
+    });
+
   } catch (e2) {
-    errBox.textContent = 'Network error. Please try again.';
-    errBox.style.display = 'block';
+    if (errBox) {
+      errBox.textContent = 'Network error. Please try again.';
+      errBox.style.display = 'block';
+    }
     submitBtn.disabled = false;
   }
 });
