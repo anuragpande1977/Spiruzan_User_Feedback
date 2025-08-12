@@ -23,6 +23,8 @@
   <div class="wrap">
     <div class="card">
       <form id="form" novalidate>
+
+        <!-- About Pet -->
         <h2>About Your Pet</h2>
         <div class="grid grid-2">
           <div>
@@ -68,8 +70,16 @@
 
         <div class="hr"></div>
 
+        <!-- Supplement Use -->
         <h2>Supplement Use</h2>
         <div class="grid grid-2">
+          <!-- New Email Field -->
+          <div style="grid-column:1/-1">
+            <label>Email (for updates/receipts) <span class="req">*</span></label>
+            <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+            <div class="muted">We’ll only use this to follow up about your feedback.</div>
+          </div>
+
           <div>
             <label>Duration of Use</label>
             <select name="useDuration">
@@ -79,6 +89,7 @@
               <option>Over 8 weeks</option>
             </select>
           </div>
+
           <div>
             <label>Frequency</label>
             <select name="frequency">
@@ -88,11 +99,13 @@
               <option>As needed</option>
             </select>
           </div>
+
           <div>
             <label>Ease of Administration (1–5)</label>
             <div class="range"><span>1</span><input type="range" min="1" max="5" step="1" name="ease" value="3"><span>5</span></div>
             <div class="muted">1 = very difficult, 5 = very easy</div>
           </div>
+
           <div>
             <label>Acceptance by Pet</label>
             <select name="acceptance">
@@ -105,6 +118,7 @@
           </div>
         </div>
 
+        <!-- Observed Changes -->
         <h2 style="margin-top:18px">Observed Changes (1–5)</h2>
         <div class="grid grid-2">
           <div>
@@ -137,6 +151,7 @@
           </div>
         </div>
 
+        <!-- Why Spiruzan -->
         <h2 style="margin-top:18px">Why Spiruzan™?</h2>
         <div class="grid">
           <div>
@@ -165,6 +180,7 @@
           </div>
         </div>
 
+        <!-- Safety & Continuation -->
         <h2 style="margin-top:18px">Safety & Continuation</h2>
         <div class="grid grid-2">
           <div>
@@ -186,6 +202,7 @@
           <textarea name="freeText" placeholder="Share observations or a story about your pet’s progress"></textarea>
         </div>
 
+        <!-- Honeypot -->
         <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
 
         <div class="actions" style="margin-top:6px">
@@ -207,4 +224,3 @@
 <script src="assets/app.js"></script>
 </body>
 </html>
-
