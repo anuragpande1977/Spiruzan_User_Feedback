@@ -1,4 +1,4 @@
-const SCRIPT_URL = https://script.google.com/macros/s/AKfycbwixJ9ycF3svdeSlZFYESTTqGWBXVCc-09AZMJf9RXZzJqLmy1D0WxkLWf3P_6_8lVw/exec;  // <-- paste your Apps Script URL
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwixJ9ycF3svdeSlZFYESTTqGWBXVCc-09AZMJf9RXZzJqLmy1D0WxkLWf3P_6_8lVw/exec";  // <-- paste your Apps Script URL
 
 document.getElementById('yr').textContent = new Date().getFullYear();
 
