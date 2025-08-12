@@ -4,7 +4,7 @@ Static HTML form for dogs & cats (Spirulina + Astaxanthin). Responses post to a 
 
 ## Deploy (GitHub Pages)
 1. Repo Settings → **Pages** → Branch: `main`, Folder: `/ (root)` → **Save**.
-2. Live at: [`https://<yourusername>.github.io/spiruzan-feedback/`](https://github.com/anuragpande1977/Spiruzan_User_Feedback)
+2. Live at: "https://github.com/anuragpande1977/Spiruzan_User_Feedback"
 
 ## Configure Apps Script
 - Create a Google Sheet with headers (Timestamp, Pet Species, ...).
