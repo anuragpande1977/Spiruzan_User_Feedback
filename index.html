@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Spiruzan™ by Valensa — Pet Supplement Feedback</title>
+<meta name="theme-color" content="#0b3b2e">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+  <!-- Brand header -->
+  <div class="hero">
+    <div class="container">
+      <img src="assets/valensa-horiz-logo-white.png" alt="Valensa International logo" />
+      <div>
+        <h1>Spiruzan™ by Valensa — Pet Supplement Feedback</h1>
+        <p>Dogs &amp; Cats • Spirulina + Astaxanthin • Joint • Coat • Immunity</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <form id="form" novalidate>
+        <h2>About Your Pet</h2>
+        <div class="grid grid-2">
+          <div>
+            <label>Pet Species <span class="req">*</span></label>
+            <select name="petSpecies" required>
+              <option value="">Select…</option>
+              <option>Dog</option>
+              <option>Cat</option>
+            </select>
+          </div>
+          <div>
+            <label>Pet Age</label>
+            <select name="petAge">
+              <option value="">Select…</option>
+              <option>Under 2 years</option>
+              <option>2–7 years</option>
+              <option>Over 7 years</option>
+            </select>
+          </div>
+          <div>
+            <label>Pet Weight</label>
+            <select name="petWeight">
+              <option value="">Select…</option>
+              <option>&lt;5 kg (11 lbs)</option>
+              <option>5–15 kg (11–33 lbs)</option>
+              <option>&gt;15 kg (33 lbs)</option>
+            </select>
+          </div>
+          <div>
+            <label>Health Issues (select all)</label>
+            <div class="row">
+              <label class="chip"><input type="checkbox" name="healthIssues" value="None"> None</label>
+              <label class="chip"><input type="checkbox" name="healthIssues" value="Joint/Mobility"> Joint/Mobility</label>
+              <label class="chip"><input type="checkbox" name="healthIssues" value="Skin/Coat"> Skin/Coat</label>
+              <label class="chip"><input type="checkbox" name="healthIssues" value="Immune-related"> Immune-related</label>
+            </div>
+          </div>
+          <div class="grid" style="grid-column:1/-1">
+            <label>Chronic Conditions (diagnosed by vet)</label>
+            <input type="text" name="chronic" placeholder="e.g., osteoarthritis, dermatitis" />
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <h2>Supplement Use</h2>
+        <div class="grid grid-2">
+          <div>
+            <label>Duration of Use</label>
+            <select name="useDuration">
+              <option value="">Select…</option>
+              <option>Less than 4 weeks</option>
+              <option>4–8 weeks</option>
+              <option>Over 8 weeks</option>
+            </select>
+          </div>
+          <div>
+            <label>Frequency</label>
+            <select name="frequency">
+              <option value="">Select…</option>
+              <option>Daily</option>
+              <option>Every other day</option>
+              <option>As needed</option>
+            </select>
+          </div>
+          <div>
+            <label>Ease of Administration (1–5)</label>
+            <div class="range"><span>1</span><input type="range" min="1" max="5" step="1" name="ease" value="3"><span>5</span></div>
+            <div class="muted">1 = very difficult, 5 = very easy</div>
+          </div>
+          <div>
+            <label>Acceptance by Pet</label>
+            <select name="acceptance">
+              <option value="">Select…</option>
+              <option>Eagerly eats</option>
+              <option>Accepts with food</option>
+              <option>Needs encouragement</option>
+              <option>Refuses</option>
+            </select>
+          </div>
+        </div>
+
+        <h2 style="margin-top:18px">Observed Changes (1–5)</h2>
+        <div class="grid grid-2">
+          <div>
+            <label>Joint Mobility</label>
+            <div class="range"><span>1</span><input type="range" min="1" max="5" step="1" name="mobility" value="3"><span>5</span></div>
+            <div class="muted">1 = much worse, 3 = no change, 5 = much improved</div>
+          </div>
+          <div>
+            <label>Fur/Coat Condition</label>
+            <div class="range"><span>1</span><input type="range" min="1" max="5" step="1" name="coat" value="3"><span>5</span></div>
+          </div>
+          <div>
+            <label>Immune Health</label>
+            <div class="range"><span>1</span><input type="range" min="1" max="5" step="1" name="immune" value="3"><span>5</span></div>
+          </div>
+          <div>
+            <label>Energy &amp; Playfulness</label>
+            <div class="range"><span>1</span><input type="range" min="1" max="5" step="1" name="energy" value="3"><span>5</span></div>
+          </div>
+        </div>
+
+        <div class="grid grid-2" style="margin-top:10px">
+          <div>
+            <label>Quality of Life — Before (1–10)</label>
+            <input type="number" name="qolBefore" min="1" max="10" placeholder="1–10" />
+          </div>
+          <div>
+            <label>Quality of Life — After (1–10)</label>
+            <input type="number" name="qolAfter" min="1" max="10" placeholder="1–10" />
+          </div>
+        </div>
+
+        <h2 style="margin-top:18px">Why Spiruzan™?</h2>
+        <div class="grid">
+          <div>
+            <label>What made you choose this supplement? (select all)</label>
+            <div class="row">
+              <label class="chip"><input type="checkbox" name="choiceFactors" value="Vet recommendation"> Vet recommendation</label>
+              <label class="chip"><input type="checkbox" name="choiceFactors" value="Scientific evidence"> Scientific evidence</label>
+              <label class="chip"><input type="checkbox" name="choiceFactors" value="Natural & safe"> Natural &amp; safe</label>
+              <label class="chip"><input type="checkbox" name="choiceFactors" value="Brand reputation"> Brand reputation</label>
+            </div>
+          </div>
+
+          <div>
+            <label>Confidence in Effectiveness (1–5)</label>
+            <div class="range"><span>1</span><input type="range" min="1" max="5" step="1" name="confidence" value="3"><span>5</span></div>
+          </div>
+
+          <div>
+            <label>Would you recommend Spiruzan™?</label>
+            <select name="recommend">
+              <option value="">Select…</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+        </div>
+
+        <h2 style="margin-top:18px">Safety & Continuation</h2>
+        <div class="grid grid-2">
+          <div>
+            <label>Side Effects</label>
+            <input type="text" name="sideEffects" placeholder="None / describe" />
+          </div>
+          <div>
+            <label>Will you continue using it?</label>
+            <select name="continueUse">
+              <option value="">Select…</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-top:10px">
+          <label>Anything else you’d like us to know?</label>
+          <textarea name="freeText" placeholder="Share observations or a story about your pet’s progress"></textarea>
+        </div>
+
+        <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <div class="actions" style="margin-top:6px">
+          <label class="muted"><input type="checkbox" id="consent" required> I consent to my responses being stored to improve Spiruzan™. This does not replace veterinary advice.</label>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn" id="submitBtn">Submit Feedback</button>
+        </div>
+
+        <div class="success" id="okBox">Thanks! Your feedback has been recorded.</div>
+        <div class="error" id="errBox">Sorry, something went wrong. Please try again.</div>
+      </form>
+    </div>
+
+    <footer>© <span id="yr"></span> Valensa International. Spiruzan™.</footer>
+  </div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
+
